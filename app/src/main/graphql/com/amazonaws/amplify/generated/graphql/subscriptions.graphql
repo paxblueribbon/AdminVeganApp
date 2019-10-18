@@ -1,0 +1,91 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateIngredient(
+  $name: String
+  $id: ID
+  $vegan: Vegan
+  $glutenfree: GlutenFree
+  $popularity: Int
+) {
+  onCreateIngredient(
+    name: $name
+    id: $id
+    vegan: $vegan
+    glutenfree: $glutenfree
+    popularity: $popularity
+  ) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+subscription OnUpdateIngredient(
+  $name: String
+  $id: ID
+  $vegan: Vegan
+  $glutenfree: GlutenFree
+  $popularity: Int
+) {
+  onUpdateIngredient(
+    name: $name
+    id: $id
+    vegan: $vegan
+    glutenfree: $glutenfree
+    popularity: $popularity
+  ) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+subscription OnDeleteIngredient(
+  $name: String
+  $id: ID
+  $vegan: Vegan
+  $glutenfree: GlutenFree
+  $popularity: Int
+) {
+  onDeleteIngredient(
+    name: $name
+    id: $id
+    vegan: $vegan
+    glutenfree: $glutenfree
+    popularity: $popularity
+  ) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+subscription OnCreateIngFeedback($id: ID, $userId: String, $name: String) {
+  onCreateIngFeedback(id: $id, userId: $userId, name: $name) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}
+subscription OnUpdateIngFeedback($id: ID, $userId: String, $name: String) {
+  onUpdateIngFeedback(id: $id, userId: $userId, name: $name) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}
+subscription OnDeleteIngFeedback($id: ID, $userId: String, $name: String) {
+  onDeleteIngFeedback(id: $id, userId: $userId, name: $name) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "environ": {
+        "awscloudformation": {
+            "AuthRoleName": "adminveganapp-20190411015948-authRole",
+            "UnauthRoleArn": "arn:aws:iam::781136056046:role/adminveganapp-20190411015948-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::781136056046:role/adminveganapp-20190411015948-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "adminveganapp-20190411015948-deployment",
+            "UnauthRoleName": "adminveganapp-20190411015948-unauthRole",
+            "StackName": "adminveganapp-20190411015948",
+            "StackId": "arn:aws:cloudformation:us-west-2:781136056046:stack/adminveganapp-20190411015948/29995770-5c38-11e9-8c3a-061afba9e41c"
+        },
+        "categories": {
+            "auth": {
+                "cognitoc558f5f3": {}
+            }
+        }
+    }
+}

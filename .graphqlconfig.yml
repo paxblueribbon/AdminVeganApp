@@ -1,0 +1,18 @@
+projects:
+  veganApp:
+    schemaPath: app/src/main/graphql/schema.json
+    includes:
+      - app/src/main/graphql/**/*.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        graphQLApiId: mifamekmlbcdnda7brmplyhq3y
+        codeGenTarget: ''
+        generatedFileName: ''
+        docsFilePath: app/src/main/graphql/com/amazonaws/amplify/generated/graphql
+        region: us-west-2
+        maxDepth: 2
+      endpoints:
+        prod: >-
+          https://4jtrfkupmnentg6drcskt7gm5y.appsync-api.us-west-2.amazonaws.com/graphql

@@ -1,0 +1,67 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateIngredient($input: CreateIngredientInput!) {
+  createIngredient(input: $input) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+mutation BatchCreateIngredients($input: [CreateIngredientInput]) {
+  batchCreateIngredients(input: $input) {
+    items {
+      name
+      id
+      vegan
+      glutenfree
+      popularity
+    }
+    nextToken
+  }
+}
+mutation UpdateIngredient($input: UpdateIngredientInput!) {
+  updateIngredient(input: $input) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+mutation DeleteIngredient($input: DeleteIngredientInput!) {
+  deleteIngredient(input: $input) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+mutation CreateIngFeedback($input: CreateIngFeedbackInput!) {
+  createIngFeedback(input: $input) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}
+mutation UpdateIngFeedback($input: UpdateIngFeedbackInput!) {
+  updateIngFeedback(input: $input) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}
+mutation DeleteIngFeedback($input: DeleteIngFeedbackInput!) {
+  deleteIngFeedback(input: $input) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}

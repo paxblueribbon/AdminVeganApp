@@ -1,0 +1,51 @@
+# this is an auto generated file. This will be overwritten
+query GetIngredient($name: String!) {
+  getIngredient(name: $name) {
+    name
+    id
+    vegan
+    glutenfree
+    popularity
+  }
+}
+query ListIngredients(
+  $filter: TableIngredientFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listIngredients(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      name
+      id
+      vegan
+      glutenfree
+      popularity
+    }
+    nextToken
+  }
+}
+query GetIngFeedback($id: ID!, $name: String!) {
+  getIngFeedback(id: $id, name: $name) {
+    id
+    userId
+    name
+    shouldVegan
+    shouldGf
+  }
+}
+query ListIngFeedbacks(
+  $filter: TableIngFeedbackFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listIngFeedbacks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userId
+      name
+      shouldVegan
+      shouldGf
+    }
+    nextToken
+  }
+}
