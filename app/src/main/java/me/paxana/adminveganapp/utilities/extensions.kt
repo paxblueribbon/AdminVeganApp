@@ -1,17 +1,25 @@
 package me.paxana.adminveganapp.utilities
 
-import android.widget.Switch
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.amazonaws.amplify.generated.graphql.GetIngredientQuery
-import me.paxana.adminveganapp.Ingredient
+import com.amazonaws.amplify.generated.graphql.ListIngredientsQuery
+import me.paxana.adminveganapp.model.Ingredient
+import type.GlutenFree
+import type.Vegan
 
 fun List<String>.toIngredients(): List<Ingredient> {
     val ingList = mutableListOf<Ingredient>()
     this.forEach {
-        val ing = Ingredient("id", it, type.Vegan.UNKNOWN, type.GlutenFree.UNKNOWN, 0)
+        val ing = Ingredient(
+            "id",
+            it,
+            Vegan.UNKNOWN,
+            GlutenFree.UNKNOWN,
+            0
+        )
         ingList.add(ing)
     }
     return ingList
@@ -37,4 +45,14 @@ inline fun <reified T : ViewModel> FragmentActivity.getViewModel(noinline creato
         ViewModelProviders.of(this).get(T::class.java)
     else
         ViewModelProviders.of(this, BaseViewModelFactory(creator)).get(T::class.java)
+}
+
+fun ListIngredientsQuery.Item.toIngredient(): Ingredient {
+    return Ingredient(
+        this.id(),
+        this.name(),
+        this.vegan()!!,
+        this.glutenfree()!!,
+        0
+    )
 }

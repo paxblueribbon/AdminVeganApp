@@ -1,4 +1,4 @@
-package me.paxana.adminveganapp
+package me.paxana.adminveganapp.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import type.GlutenFree
+import me.paxana.adminveganapp.R
+import type.Vegan
 
-class GfDropDownAdapter(val context: Context) : BaseAdapter() {
+class VeganDropDownAdapter(val context: Context) : BaseAdapter() {
 
 
-    val mInflater: LayoutInflater = LayoutInflater.from(context)
+    private val mInflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View
@@ -31,7 +32,7 @@ class GfDropDownAdapter(val context: Context) : BaseAdapter() {
         params.height = 60
         view.layoutParams = params
 
-        vh.label.text = GlutenFree.values()[position].name
+        vh.label.text = Vegan.values()[position].name
         return view
     }
 
@@ -48,7 +49,7 @@ class GfDropDownAdapter(val context: Context) : BaseAdapter() {
     }
 
     override fun getCount(): Int {
-        return GlutenFree.values().size
+        return Vegan.values().size
     }
 
     private class ItemRowHolder(row: View?) {

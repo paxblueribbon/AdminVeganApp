@@ -1,27 +1,28 @@
-package me.paxana.adminveganapp
+package me.paxana.adminveganapp.adapters
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
-import android.widget.ArrayAdapter
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.amplify.generated.graphql.ListIngredientsQuery
 import kotlinx.android.synthetic.main.ingredientlayout.view.*
-import type.CreateIngredientInput
-import type.DeleteIngredientInput
+import me.paxana.adminveganapp.R
+import me.paxana.adminveganapp.model.Ingredient
+import me.paxana.adminveganapp.utilities.toIngredient
 import type.GlutenFree
 import type.Vegan
 
-class IngredientRecyclerAdapter(private val ingredients: List<ListIngredientsQuery.Item>, val clickListener: RecyclerViewClickListener) : RecyclerView.Adapter<IngredientRecyclerAdapter.IngHolder>() {
+class IngredientRecyclerAdapter(private var ingredients: List<Ingredient>, private val clickListener: RecyclerViewClickListener) : RecyclerView.Adapter<IngredientRecyclerAdapter.IngHolder>() {
 
+
+    fun addIngs(newIngList: List<Ingredient>){
+        ingredients = newIngList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): IngHolder {
       val inflatedView: View = LayoutInflater.from(p0.context).inflate(R.layout.ingredientlayout, p0, false)
@@ -59,20 +60,22 @@ class IngredientRecyclerAdapter(private val ingredients: List<ListIngredientsQue
 
         fun bindIngredient(ingredient: ListIngredientsQuery.Item, clickListener: RecyclerViewClickListener) {
 
-            var isEditable: State = State.CONFIRMED
-            var oldName = ""
+            var isEditable: State =
+                State.CONFIRMED
+            var oldIng: Ingredient? = null
             var newName: String
 
             val ocl1 = View.OnClickListener{
                 //Text Editable
 
                 if (isEditable == State.CONFIRMED) {
-                    oldName = this.ingredient!!.name()
+                    oldIng = this.ingredient!!.toIngredient()
                     view.ingEditText.setText(view.ingNameTV.text.toString())
                     view.ingNameTV.visibility = View.INVISIBLE
                     view.ingEditText.visibility = View.VISIBLE
                     view.ingEditButton.text = "Confirm"
-                    isEditable = State.EDITABLE
+                    isEditable =
+                        State.EDITABLE
                 }
 
                 else if (isEditable == State.EDITABLE) {
@@ -81,9 +84,10 @@ class IngredientRecyclerAdapter(private val ingredients: List<ListIngredientsQue
                     view.ingEditText.visibility = View.INVISIBLE
                     view.ingNameTV.visibility = View.VISIBLE
                     Log.d("Adapter Position", adapterPosition.toString())
-                    clickListener.run { onConfirmSelect(oldName, newName, adapterPosition) }
+                    clickListener.run { onConfirmSelect(oldIng!!, newName, adapterPosition) }
                     view.ingEditButton.text = "Edit"
-                    isEditable = State.CONFIRMED
+                    isEditable =
+                        State.CONFIRMED
                 }
             }
 
@@ -113,7 +117,6 @@ class IngredientRecyclerAdapter(private val ingredients: List<ListIngredientsQue
                     clickListener.onGfItemSelect(ingredient, GlutenFree.values()[position], adapterPosition)
                 }
             }
-
         }
     }
 

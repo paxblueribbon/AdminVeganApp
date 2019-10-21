@@ -1,4 +1,4 @@
-package me.paxana.adminveganapp
+package me.paxana.adminveganapp.utilities
 
 import android.content.Context
 import com.amazonaws.mobile.config.AWSConfiguration

@@ -7,10 +7,9 @@ import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
 import com.orhanobut.logger.Logger
 import io.reactivex.Observable
-import me.paxana.adminveganapp.ClientFactory
-import me.paxana.adminveganapp.Ingredient
+import me.paxana.adminveganapp.utilities.ClientFactory
+import me.paxana.adminveganapp.model.Ingredient
 import type.*
-import javax.annotation.Nonnull
 
 class AwsInteractorImpl: AwsInteractor {
 
@@ -61,7 +60,6 @@ class AwsInteractorImpl: AwsInteractor {
                     }
                 })
         }
-
     }
 
     override fun getIngredients(nextToken: String?, filter: TableIngredientFilterInput?): Observable<Response<ListIngredientsQuery.Data>> {

@@ -3,8 +3,7 @@ package me.paxana.adminveganapp.mvvm.aws
 import com.amazonaws.amplify.generated.graphql.*
 import com.apollographql.apollo.api.Response
 import io.reactivex.Observable
-import me.paxana.adminveganapp.Ingredient
-import type.CreateIngredientInput
+import me.paxana.adminveganapp.model.Ingredient
 import type.TableIngredientFilterInput
 
 interface AwsInteractor {

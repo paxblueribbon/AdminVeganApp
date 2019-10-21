@@ -1,10 +1,11 @@
-package me.paxana.adminveganapp
+package me.paxana.adminveganapp.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.amazonaws.mobile.client.*
+import me.paxana.adminveganapp.R
 
 class AuthenticationActivity : AppCompatActivity() {
 

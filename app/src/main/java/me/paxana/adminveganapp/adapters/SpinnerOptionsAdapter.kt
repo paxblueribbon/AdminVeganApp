@@ -1,4 +1,4 @@
-package me.paxana.adminveganapp
+package me.paxana.adminveganapp.adapters
 
 import android.content.Context
 import android.view.View
@@ -7,8 +7,10 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.TextView
 import android.view.LayoutInflater
+import me.paxana.adminveganapp.R
+import me.paxana.adminveganapp.model.StateVO
 
-class MyAdapter(contexxt: Context, resource:Int, objects:List<StateVO>): ArrayAdapter<StateVO>(contexxt, resource, objects) {
+class SpinnerOptionsAdapter(contexxt: Context, resource:Int, objects:List<StateVO>): ArrayAdapter<StateVO>(contexxt, resource, objects) {
     private val listState:ArrayList<StateVO> = objects as ArrayList<StateVO>
     private var isFromView = false
     override fun getDropDownView(position:Int, convertView: View?, parent: ViewGroup): View? {
@@ -17,8 +19,8 @@ class MyAdapter(contexxt: Context, resource:Int, objects:List<StateVO>): ArrayAd
     override fun getView(position:Int, convertView:View?, parent:ViewGroup):View? {
         return getCustomView(position, convertView, parent)
     }
-    fun getCustomView(position:Int, convertView:View?, parent: ViewGroup):View? {
-        val holder:ViewHolder
+    private fun getCustomView(position:Int, convertView:View?, parent: ViewGroup):View? {
+        val holder: ViewHolder
         var cv :View? = convertView
         if (cv == null)
         {
